@@ -25,8 +25,8 @@ def part_two():
     for line in lines:
         increment = int(line[1:])
         
-        # Count every extra loops
-        password += int(increment/100)
+        # Count every extra loop
+        password += increment//100
         increment = increment%100
 
         started_at_zero = start == 0
