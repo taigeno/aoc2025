@@ -9,7 +9,7 @@ def part_one():
     rays.add(lines[0].index("S"))
     for line in lines[1:]:
         for ray in list(rays):
-            if line[ray] =="^":
+            if line[ray] == "^":
                 rays.add(ray - 1)
                 rays.add(ray + 1)
                 rays.remove(ray)
@@ -22,7 +22,7 @@ def part_two():
     rays[lines[0].index("S")] = 1
     for line in lines[1:]:
         for ray in list(rays):
-            if line[ray] =="^":
+            if line[ray] == "^":
                 rays[ray - 1] += rays[ray]
                 rays[ray + 1] += rays[ray]
                 del rays[ray]
