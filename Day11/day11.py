@@ -1,7 +1,7 @@
 with open('input.txt', 'r') as inputFile:
     lines = [line.strip() for line in inputFile]
 
-def count_paths_graph(graph, start, end):
+def count_paths(graph, start, end):
     memo = {}
 
     def dfs(node):
@@ -23,10 +23,11 @@ def count_paths_graph(graph, start, end):
 servers = {server: outputs.split() for server,outputs in [line.split(": ") for line in lines]}
 
 def part_one():
-    print(count_paths_graph(servers, "you", "out"))
+    print(count_paths(servers, "you", "out"))
 
 def part_two():
-    print(count_paths_graph(servers, "svr", "fft") * count_paths_graph(servers, "fft", "dac") * count_paths_graph(servers, "dac", "out"))
+    # None go from "dac" to "fft"
+    print(count_paths(servers, "svr", "fft") * count_paths(servers, "fft", "dac") * count_paths(servers, "dac", "out"))
 
 part_one()
 part_two()
